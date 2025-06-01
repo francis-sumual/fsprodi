@@ -215,8 +215,8 @@ export function RegistrationSection() {
                   <span className="text-lg font-bold text-primary">1</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Pilih Gathering</h3>
-                  <p className="text-sm text-muted-foreground">Choose an gathering</p>
+                  <h3 className="font-semibold">Pilih Gathering/Kegiatan</h3>
+                  <p className="text-sm text-muted-foreground">Choose an gathering/kegiatan</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -256,7 +256,7 @@ export function RegistrationSection() {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Label htmlFor="gatheringId">Gathering</Label>
+                  <Label htmlFor="gatheringId">Gathering/Kegiatan</Label>
                   {isLoadingGatherings ? (
                     <div className="flex items-center gap-2 h-10 px-3 border rounded-md">
                       <Loader2 className="h-4 w-4 animate-spin" />
@@ -284,7 +284,7 @@ export function RegistrationSection() {
                   )}
                 </div>
                 <div>
-                  <Label htmlFor="groupId">Group</Label>
+                  <Label htmlFor="groupId">Group/Kelompok</Label>
                   {isLoadingGroups ? (
                     <div className="flex items-center gap-2 h-10 px-3 border rounded-md">
                       <Loader2 className="h-4 w-4 animate-spin" />
@@ -306,7 +306,7 @@ export function RegistrationSection() {
                   )}
                 </div>
                 <div>
-                  <Label htmlFor="memberId">Member</Label>
+                  <Label htmlFor="memberId">Prodiakon/Prodiakones</Label>
                   {isLoadingMembers ? (
                     <div className="flex items-center gap-2 h-10 px-3 border rounded-md">
                       <Loader2 className="h-4 w-4 animate-spin" />

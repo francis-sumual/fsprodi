@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Calendar, Users, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
     <section id="home" className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 bg-gradient-to-b from-primary/5 to-background">
       <div className="container px-4 mx-auto">
+        {/* <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 bg-[url('/banner.jpg')]"> */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ">
+          <Image className="mx-auto mb-10" src="/banner.jpg" alt="Pilgrim" width={1268} height={640} />
+        </div>
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
@@ -27,18 +32,21 @@ export function HeroSection() {
                 </Button>
               </Link>
             </div>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl mt-10">
+              Prinsip dan komitmen kami
+            </h1>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-primary" />
-                <span className="text-sm">Easy Scheduling</span>
+                <CheckCircle className="h-10 w-10 text-primary" />
+                <span className="text-sm font-extrabold">DIAKONIA, PELAYANAN DENGAN HATI DAN KASIH KEPADA SESAMA</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="text-sm">Group Management</span>
+                <CheckCircle className="h-10 w-10 text-primary" />
+                <span className="text-sm font-extrabold">KOINONIA, PERSEKUTUAN DAN PERSAUDARAAN ANTAR UMAT</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">Instant Confirmation</span>
+                <CheckCircle className="h-10 w-10 text-primary" />
+                <span className="text-sm font-extrabold">LITURGIA, PENGUDUSAN DIRI DAN PENYEMBAHAN KEPADA TUHAN</span>
               </div>
             </div>
           </div>
