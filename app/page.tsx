@@ -4,8 +4,10 @@ import { RegistrationSection } from "@/components/sections/registration-section"
 import { GatheringRegistrationList } from "@/components/sections/gathering-registration-list";
 import { FooterSection } from "@/components/sections/footer-section";
 import { FloatingNavbar } from "@/components/floating-navbar";
+import { revalidatePath } from "next/cache";
 
 export default function Home() {
+  revalidatePath("/");
   return (
     <>
       <FloatingNavbar />
