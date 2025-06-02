@@ -213,7 +213,7 @@ export function RegistrationSection() {
           window.location.href = window.location.pathname;
         }, 500);
       }, 2000);
-
+      fetchRegistrations();
       return () => clearTimeout(timer);
     }
   }, [success, router]);
