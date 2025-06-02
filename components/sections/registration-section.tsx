@@ -10,7 +10,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { format } from "date-fns";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 type Group = {
   id: number;
@@ -57,6 +57,7 @@ export function RegistrationSection() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     Promise.all([fetchGatherings(), fetchGroups(), fetchRegistrations()]);
