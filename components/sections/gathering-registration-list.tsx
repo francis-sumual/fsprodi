@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Users } from "lucide-react";
 import { format } from "date-fns";
+import { revalidatePath } from "next/cache";
 
 type Registration = {
   id: number;
@@ -52,6 +53,7 @@ type RegistrationSummary = {
 };
 
 export function GatheringRegistrationList() {
+  revalidatePath("page");
   const [registrations, setRegistrations] = useState<GroupedRegistrations>({});
   const [summary, setSummary] = useState<RegistrationSummary>({
     totalRegistrations: 0,

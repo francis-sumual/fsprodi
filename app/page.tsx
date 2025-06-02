@@ -7,7 +7,7 @@ import { FloatingNavbar } from "@/components/floating-navbar";
 import { revalidatePath } from "next/cache";
 
 export default function Home() {
-  revalidatePath("/");
+  revalidatePath("page");
   return (
     <>
       <FloatingNavbar />
