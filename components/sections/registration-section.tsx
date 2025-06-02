@@ -10,6 +10,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { format } from "date-fns";
+import router from "next/router";
 
 type Group = {
   id: number;
@@ -55,6 +56,7 @@ export function RegistrationSection() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     Promise.all([fetchGatherings(), fetchGroups(), fetchRegistrations()]);
@@ -145,6 +147,7 @@ export function RegistrationSection() {
     e.preventDefault();
     setStatus("loading");
     setError("");
+    setSuccess(false);
 
     try {
       if (!formData.gatheringId || !formData.groupId || !formData.memberId) {
@@ -180,7 +183,7 @@ export function RegistrationSection() {
         const data = await response.json();
         throw new Error(data.error || "Failed to register");
       }
-
+      setSuccess(true);
       setStatus("success");
       // Trigger a refresh of the registration list by updating lastUpdate
       const event = new CustomEvent("registration-updated");
@@ -196,6 +199,23 @@ export function RegistrationSection() {
       setStatus("idle");
     }
   };
+
+  useEffect(() => {
+    if (success) {
+      // Show success message for 2 seconds before refreshing
+      const timer = setTimeout(() => {
+        // Use router.refresh() first to update React Server Components
+        router.refresh();
+
+        // Then use a direct page reload as a fallback
+        setTimeout(() => {
+          window.location.href = window.location.pathname;
+        }, 500);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [success, router]);
 
   return (
     <section id="register" className="py-24">
